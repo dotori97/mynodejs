@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>For loop</title>
+    </head>
+    <body>
+        <ul>
+            <% 
+                for(let i=0; i<data.length; i++){ 
+                    if(i%2 == 0) {    
+            %>
+                <li><%= data[i]["title"] %></li>
+                    <%= data[i]["content"] %>
+            <% 
+                    }      
+                } 
+            %>
+        </ul>
+    </body>
+</html>
+
+    <% data.forEach(item => { %>
+        <li>
+            <%=item["title"] %>
+            <%=item["content"] %>
+        </li>        
+    <% }) %>    

@@ -1,0 +1,159 @@
+*
+{{ }} 밖의 괄호는 jsx에서 js사용할 때 
+안의 괄호는 객체.
+
+*
+npm install
+
+*package.json
+"scripts": {
+    "start": "PORT=3000 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }, 
+
+--> npm start해도 계속 안 나오다가 
+port=3000(처음에는 port=8000이었음)을 지운 다음 화면 나옴
+
+*npm install axio
+
+*
+params: {
+                    query: query,
+                    page: page,
+                    size:1,
+                }
+
+https://dapi.kakao.com/v3/search/book?query=${query}&page=${page}`,
+
+*
+codeSnap 
+
+
+*
+useEffect를 이용해서 하는 방법
+
+*
+
+{book.datetime.split("T"))[0]}
+
+const [selected, setSelected= useState(null);
+
+<SearchArea setSelected={setSelected}>
+
+
+
+
+**소프트웨어 개발 관련 직업**
+PM
+PL
+품질관리
+SW 아키텍트
+시스템 아키텍트
+DBA
+데이터분석가
+데이터 엔지니어
+시스템 운영자
+
+**백엔드 관련 기술 사이트**
+https://roadmap.sh/backend
+
+
+**아키텍처 패턴 - 모놀리틱
+
+client(chrome/ios/android/flutter/react..)
+
+Web Server(static file/ image, css, js파일을 serving)
+
+Web Application Server(WAS) 
+
+DB Server
+
+**강사님 강의자료 주소
+https://github.com/mhb8436/tutorial_sqlite3
+
+**vscode 확장팩 설치 
+SQLite3 Editor 
+
+
+
+
+
+
+
+gmail이 기존에 있던 다른 메일과 다른 점??
+
+**
+http://127.0.01:3000/user
+3000까지는 웹서버를 찾아가는 주소/user는 웹서버의 라우팅 주소
+
+http의 기본 포트번호 80
+https의 기본 포트번호 443
+
+**
+https://www.google.com/search?q=http%EA%B5%AC%EC%A1%B0&oq=http%EA%B5%AC%EC%A1%B0&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIKCAIQABiABBiiBDIKCAMQABiABBiiBNIBCDQ3NTBqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8
+?(쿼리) 키와 벨류 형태 
+#framents
+
+http구조정리(https://programmer93.tistory.com/60)
+http웹 기본지식(https://velog.io/@gparkkii/URIwebprocess)
+
+
+**package.json
+npm init
+package name: (02) sample
+version: (1.0.0) 1.0.0
+description: sample project
+...
+license: MIT (무료 제공하겠다는 의미)
+
+npm install express 
+
+npm i nodemon
+
+**
+scripts(메타데이터 정보)
+
+**
+제이슨은 설정파일 또는 데이터 이동시 사용됨
+
+**UI**
+프라임 리엑트
+shaden/ul
+vercel
+부트스트랩(?)
+material ui
+MUI Store
+차트js
+
+**프로젝트 생성
+npm init -y (무조건 yes)
+
+**언어별/프레임워크별로 주로 사용하는 포트가 있다
+python: 5000
+express: 3000
+아파치: 8080?
+ftp:21
+ssh:22
+smtp:25
+기타 등등
+
+
+**
+1.GET
+서버에서 리소스를 요청할 때 사용
+2. POST
+서버로 데이터를 전송하여 리소스를 생성하거나 서버의 상태를 변경할 때
+3.PUT
+기존 리소스를 수정할 떄
+
+
+**크롬에서 
+json formatter 설치
+
+
+**packge.json 에 추가
+"dev": "nodemon ch04_01.js"
+
+
