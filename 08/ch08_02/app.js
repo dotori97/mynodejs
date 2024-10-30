@@ -21,7 +21,11 @@ app.post("/posts", async (req, res) => {
 });
 
 app.get("/posts", async(req, res) => {
-    const posts = await models.Post.findAll();
+    const posts = await models.Post.findAll({
+        include: [
+            {model: models.Comment}
+        ]
+    });
     res.json({data: posts});
 });
 
@@ -51,7 +55,29 @@ app.put("/posts/:id", async (req, res) => {
     }
 })
 
+app.delete("/posts/:id", async (req, res) => {
+    const result = await models.Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    });
+    console.log(result);
+    if(result){
+        res.status(204).send();
+    }else{
+        res.status(404).json({result: `post not found`});
+    }
+});
 
+app.post("/posts/:id/comments", async (req, res) => {
+    const postId = req.params.id;
+    const {content} = req.body;
+    const comment = await models.Comment.create({
+        PostId: postId,
+        content: content, 
+    });
+    res.status(201).json({data: comment});
+});
 
 // npx nodemon app.js
 app.listen(PORT, ()=>{
