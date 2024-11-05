@@ -15,7 +15,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }, 
         content: DataTypes.STRING,
-        author: DataTypes.STRING
+        author: DataTypes.STRING,
+        filename: {                   //마이그레이션 실행(?)해도 논리적인 파일은 자동으로 안 바뀜
+            type: DataTypes.STRING,   //물리적인 파일은 생성되도
+            allowNull:true            //그래서 이 부분 수정해줘야(첨부해줘야)
+        }
     });
     Post.associate = function(models){
         Post.hasMany(models.Comment);
