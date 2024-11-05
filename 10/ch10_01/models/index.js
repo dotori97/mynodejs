@@ -9,7 +9,7 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
-let sequelize;
+let sequelize;  //시퀄라이즈 객체 생성. config.json파일 참조
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
@@ -17,7 +17,7 @@ if (config.use_env_variable) {
 }
 
 fs
-  .readdirSync(__dirname)
+  .readdirSync(__dirname)  // __dirname : models
   .filter(file => {
     return (
       file.indexOf('.') !== 0 &&
@@ -25,13 +25,16 @@ fs
       file.slice(-3) === '.js' &&
       file.indexOf('.test.js') === -1
     );
-  })
-  .forEach(file => {
+  }) // [post.js, user.js]
+  .forEach(file => {  // 1.user.js -> models/user.js 2. post.js -> models/post.js
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
+    //db['User'] = User
+    //db['Post'] = Post
   });
 
-Object.keys(db).forEach(modelName => {
+  //['User', 'Post']
+Object.keys(db).forEach(modelName => {  // 1. User, 2. Post
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
@@ -40,4 +43,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db;
+module.exports = db;  //app.js에서 사용

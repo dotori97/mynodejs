@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
         name: DataTypes.STRING,
         address: DataTypes.STRING,        
     }, {
-        tablename: "users"
+        tableName: "users"
     });
     return User;
 }
