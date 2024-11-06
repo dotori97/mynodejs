@@ -2,7 +2,14 @@ const postService = require(`../services/postService`);
 
 const createPost = async (req, res) => {
     try{
-        const post = await postService.createPost(req.body);
+        const {title, content} = req.body;
+        const user = req.user;
+        const post = await postService.createPost({
+            title: title,
+            content: content,
+            UserId: user.id,
+        });
+        //const post = await postService.createPost(req.body);
         res.status(200).json({message: 'ok', data: post});
     }catch(e){
         res.status(500).json({message: 'error', data:e.message});

@@ -7,6 +7,10 @@ const register = async (req, res) => {
     const {email, name, password} = req.body;
     //bcrypt는 비밀번호를 안전하게 암호화하기 위해 설계된 해시 알고리즘 라이브러리
     //password: 해싱할 평문 비밀번호. 이 변수에는 사용자가 입력한 실제 비밀번호가 들어감.
+    //10: 해싱 작업의 복잡도(혹은 "salt 라운드"라고도 함)를 나타냄. 
+    //복잡도가 높을수록 해시 과정이 더 오래 걸리지만, 보안은 더 강화. 보통 10에서 12 사이의 값을 많이 사용.
+    //bcrypt.hash()는 비동기 함수이므로 해싱이 완료될 때까지 기다리기 위해 await을 사용. 
+    //이를 통해 bcrypt.hash() 함수의 결과가 완료되면 hashedPassword 변수에 할당.
     const hashedPassWord = await bcrypt.hash(password, 10);
     try{
         const user = await userService.createUser({
@@ -57,7 +61,7 @@ const refresh = async (req, res) => {
 }
 
 module.exports = {
-    register, login, 
+    register, login, refresh
 }
 
 

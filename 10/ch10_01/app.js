@@ -7,6 +7,7 @@ const path = require(`path`);
 //import router from routes
 const userRoute = require(`./routes/userRoute`);
 const postRoute = require(`./routes/postRoute`);
+const authRoute = require(`./routes/authRoute`);
 
 const models = require(`./models`); //models/index.js
 //models <= db
@@ -17,9 +18,8 @@ app.use(express.json());
 // use router
 app.use(`/users`, userRoute);
 app.use(`/posts`, postRoute);
-//app.use(`/posts`, userRoute);
-//app.use(`/products`, userRoute);
-//app.use(`/orders`, userRoute);
+app.use(`/auth`, authRoute);
+
 
 app. listen(PORT, () =>{
     console.log(`server is running on ${PORT}`);

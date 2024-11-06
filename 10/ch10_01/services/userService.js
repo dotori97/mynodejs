@@ -14,4 +14,5 @@ const findUserByEmail = async (email) => {
 module.exports = {
     findAll,
     createUser,
+    findUserByEmail,
 }
