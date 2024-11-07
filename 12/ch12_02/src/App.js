@@ -76,6 +76,9 @@ const handleLogin = () => {
     socket.emit(`login`, username);
   }
 }
+const handleCreatRoom = () => {
+  
+}
 
   return (
     <div className="App">
@@ -92,8 +95,16 @@ const handleLogin = () => {
         </div>    
       ): (
         <div className='chat-container'>
-
-          
+          <div className='creat-room'>
+            <h2>Create Room</h2>
+            <input
+              type = "text"
+              placeholder='enter the room'
+              value={roomName}
+              onChange={(e)=> setRoomName(e.target.value)}
+            />
+            <button onClick={(handleCreatRoom)}>Create Room</button>
+          </div>
         </div>
       )}
     </div>
